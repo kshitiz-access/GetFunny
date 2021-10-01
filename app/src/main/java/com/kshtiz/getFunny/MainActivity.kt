@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import com.android.volley.Request
 import com.android.volley.Response
@@ -18,11 +19,12 @@ class MainActivity : AppCompatActivity() {
         val tvMessage = findViewById<TextView>(R.id.textView)
         val bGenerateMessage = findViewById<Button>(R.id.button)
         val bSendMessage = findViewById<Button>(R.id.button2)
+        val etName = findViewById<EditText>(R.id.etName)
 
         //before making a request we need to add internet permission in manifest
 
         bGenerateMessage.setOnClickListener {
-            loadText(tvMessage)
+            loadText(tvMessage, etName.text.toString())
         }
 
         bSendMessage.setOnClickListener {
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun loadText(tvMessage : TextView)
+    private fun loadText(tvMessage : TextView, name: String)
     {
         val queue = Volley.newRequestQueue(this)
         val url = "https://insult.mattbas.org/api/insult"
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
-                tvMessage.text = "$response"
+                tvMessage.text = "Dear, $name $response"
             },
             { tvMessage.text = "That didn't work!" })
 

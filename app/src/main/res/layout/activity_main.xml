@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_text_background"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:hint="Name"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:paddingTop="4dp"
@@ -15,14 +26,14 @@
         android:paddingEnd="10dp"
         android:background="@drawable/text_background"
         android:textSize="20sp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:padding="4dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="Roast Message" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
