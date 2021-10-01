@@ -1,5 +1,6 @@
 package com.kshtiz.getFunny
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -24,11 +25,13 @@ class MainActivity : AppCompatActivity() {
             loadText(tvMessage)
         }
 
-
+        bSendMessage.setOnClickListener {
+            sendMessage(tvMessage.text.toString())
+        }
 
 
     }
-    fun loadText(tvMessage : TextView)
+    private fun loadText(tvMessage : TextView)
     {
         val queue = Volley.newRequestQueue(this)
         val url = "https://insult.mattbas.org/api/insult"
@@ -43,6 +46,13 @@ class MainActivity : AppCompatActivity() {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
+    }
+    private fun sendMessage(text : String)
+    {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.putExtra(Intent.EXTRA_TEXT, text)
+        intent.type = "text/plain"
+        startActivity(intent)
     }
 
 }
