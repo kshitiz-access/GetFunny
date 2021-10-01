@@ -7,8 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/text_background"
         android:textSize="20sp"
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
@@ -19,18 +24,22 @@
         android:layout_height="wrap_content"
         android:text="TextView" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="25dp"
+        android:background="@drawable/button_background"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         android:layout_height="wrap_content"
         android:text="Button" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button2"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:layout_marginTop="25dp"
+        android:background="@drawable/button_background"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="wrap_content"
